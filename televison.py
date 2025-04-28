@@ -1,6 +1,5 @@
 
 class Television:
-    # Class constants
     MIN_VOLUME = 0
     MAX_VOLUME = 2
     MIN_CHANNEL = 0
@@ -28,14 +27,14 @@ class Television:
 
     def channel_up(self):
         if self.__status:
-            if self.__channel >= Television.MAX_CHANNEL:
+            if self.__channel == Television.MAX_CHANNEL:
                 self.__channel = Television.MIN_CHANNEL
             else:
                 self.__channel += 1
 
     def channel_down(self):
         if self.__status:
-            if self.__channel <= Television.MIN_CHANNEL:
+            if self.__channel == Television.MIN_CHANNEL:
                 self.__channel = Television.MAX_CHANNEL
             else:
                 self.__channel -= 1
@@ -55,6 +54,3 @@ class Television:
                 self.__volume = self.__prev_volume
             if self.__volume > Television.MIN_VOLUME:
                 self.__volume -= 1
-
-    def __str__(self):
-        return f"Power = {self.__status}, Channel = {self.__channel}, Volume = {self.__volume}"
